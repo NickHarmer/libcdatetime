@@ -1,0 +1,99 @@
+/*
+ * Library to support cross-platform C date and time functions
+ *
+ * Copyright (c) 2006-2014, Joachim Metz <joachim.metz@gmail.com>
+ *
+ * Refer to AUTHORS for acknowledgements.
+ *
+ * This software is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this software.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#if !defined( _LIBCDATETIME_H )
+#define _LIBCDATETIME_H
+
+#include <libcdatetime/codepage.h>
+#include <libcdatetime/definitions.h>
+#include <libcdatetime/error.h>
+#include <libcdatetime/extern.h>
+#include <libcdatetime/features.h>
+#include <libcdatetime/types.h>
+
+#if defined( __cplusplus )
+extern "C" {
+#endif
+
+/* -------------------------------------------------------------------------
+ * Support functions
+ * ------------------------------------------------------------------------- */
+
+/* Returns the library version as a string
+ */
+LIBCDATETIME_EXTERN \
+const char *libcdatetime_get_version(
+             void );
+
+/* -------------------------------------------------------------------------
+ * Error functions
+ * ------------------------------------------------------------------------- */
+
+/* Frees an error
+ */
+LIBCDATETIME_EXTERN \
+void libcdatetime_error_free(
+      libcdatetime_error_t **error );
+
+/* Prints a descriptive string of the error to the stream
+ * Returns the number of printed characters if successful or -1 on error
+ */
+LIBCDATETIME_EXTERN \
+int libcdatetime_error_fprint(
+     libcdatetime_error_t *error,
+     FILE *stream );
+
+/* Prints a descriptive string of the error to the string
+ * Returns the number of printed characters if successful or -1 on error
+ */
+LIBCDATETIME_EXTERN \
+int libcdatetime_error_sprint(
+     libcdatetime_error_t *error,
+     char *string,
+     size_t size );
+
+/* Prints a backtrace of the error to the stream
+ * Returns the number of printed characters if successful or -1 on error
+ */
+LIBCDATETIME_EXTERN \
+int libcdatetime_error_backtrace_fprint(
+     libcdatetime_error_t *error,
+     FILE *stream );
+
+/* Prints a backtrace of the error to the string
+ * Returns the number of printed characters if successful or -1 on error
+ */
+LIBCDATETIME_EXTERN \
+int libcdatetime_error_backtrace_sprint(
+     libcdatetime_error_t *error,
+     char *string,
+     size_t size );
+
+/* -------------------------------------------------------------------------
+ * Date and time functions
+ * ------------------------------------------------------------------------- */
+
+#if defined( __cplusplus )
+}
+#endif
+
+#endif
+
